@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <p th:text="'Hello ' + ${name}"></p>
+    <p th:text="1 + 2"></p>
+    <table th:each="item, sta:${array}">
+        <tr>
+            <td th:text="${item}"></td>
+            <td th:text="${sta.index}"></td>
+            <td th:text="${sta.odd}"></td>
+            <td th:text="${sta.size}"></td>
+        </tr>
+    </table>
+
+    <ul>
+        <li th:each="item:${maps}" th:text="${item.key} + '-' + ${item.value}"></li>
+    </ul>
+
+    <div th:each="item:${array}" th:text="${item}"></div>
+
+    <input type="text" th:attr="value=${name}">
+    <input type="text" th:attr="value=${name}, title=${name}">
+
+    <form action="" th:object="${user}">
+        <input type="text" th:value="*{name}">
+        <input type="text" th:value="*{password}">
+    </form>
+
+    <p th:utext="'<h1>html</h1>'"></p>
+
+    <p th:if="${name} == ${user.name}">yes</p>
+
+    <div th:switch="${user.name}">
+        <p th:case="Kevin">name is Kevin</p>
+        <p th:case="Johns">name is Johns</p>
+    </div>
+
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script th:src="@{/js/index.js}"></script>
+
+    <a th:href="@{/home}">home</a>
+
+</body>
+</html>

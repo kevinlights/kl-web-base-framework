@@ -1,0 +1,16 @@
+package com.gjh.learn.base;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * created on 2021/4/19
+ *
+ * @author kevinlights
+ */
+@SpringBootApplication
+public class App {
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+}
